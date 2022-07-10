@@ -3,19 +3,19 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import pickle
 
-#read csv
+# read csv
 data = pd.read_csv('data/auto-mpg-training-data.csv', sep=";")
 
 print(data)
 
-#shuffle data
+# shuffle data
 data = data.sample(frac=1)
 
-#'class'-column
+# 'class'-column
 y_variable = data['mpg']
 
-#all columns that are not the class column -> all columns that contain the attributes
-x_variables = data.loc[:, data.columns !='mpg']
+# all columns that are not the class column -> all columns that contain the attributes
+x_variables = data.loc[:, data.columns != 'mpg']
 
 x_train, x_test, y_train, y_test = train_test_split(
     x_variables, y_variable, test_size=0.2)
@@ -26,7 +26,7 @@ regressor = regressor.fit(x_train, y_train)
 
 y_pred = regressor.predict(x_test)
 
-print (y_pred)
+print(y_pred)
 
-file_to_write =  open("data/models/baummehtoden_lr.pickle", "wb")
+file_to_write = open("data/models/baummehtoden_lr.pickle", "wb")
 pickle.dump(regressor, file_to_write)
