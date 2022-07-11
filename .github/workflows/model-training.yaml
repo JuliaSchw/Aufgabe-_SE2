@@ -5,17 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: Setup Python and install requirements
-      - uses: actions/setup-python@v4
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-      - run: pip install -r requirements.txt
+        run: pip install -r requirements.txt
       - name: Train Model
-      - run: python src/train.py
+        run: python src/train.py
       - name: Upload Trained Model
-      - uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: baummethoden_lr.pickle
           path: data/models/baummehtoden_lr.pickle
