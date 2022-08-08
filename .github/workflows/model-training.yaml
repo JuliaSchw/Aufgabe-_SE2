@@ -13,7 +13,7 @@ jobs:
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
       - run: pip install -r requirements.txt
       - name: Train Model
-      - run: python src/train.py
+      - run: python /Users/julia.schwerdtfeger/Documents/VSCode_Projects/ml-academy-Aufgabe_SE2/src/train.py
       - name: Upload Trained Model
       - uses: actions/upload-artifact@v3
         with:
