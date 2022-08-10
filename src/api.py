@@ -24,7 +24,7 @@ def get_training_data():
     return Response(data.to_json(), mimetype='application/json')
 
 
-@app.route("/predict_data")
+@app.route("/predict")
 def get_predict():
     zylinder = request.args.get('zylinder')
     ps = request.args.get('ps')
